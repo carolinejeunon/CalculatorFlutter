@@ -1,5 +1,5 @@
 class Memory {
-  static const operations = ['%', '/', '+', '-', '*', '='];
+  static const operations = ['%', '÷', '+', '-', 'x', '='];
   String? _operation;
   bool _usedOperation = false;
   final _buffer = [0.0, 0.0];
@@ -43,7 +43,7 @@ class Memory {
 
     result += digit;
 
-    _buffer[_bufferIndex] = double.tryParse(result)!;
+    _buffer[_bufferIndex] = double.tryParse(result) ?? 0;
     _usedOperation = false;
   }
 
@@ -75,7 +75,7 @@ class Memory {
       case '+':
         return _buffer[0] + _buffer[1];
       case '-':
-        return _buffer[0] - _buffer[1];
+        return _buffer[0] - _buffer[1]; 
       default:
         return 0.0;
     }
